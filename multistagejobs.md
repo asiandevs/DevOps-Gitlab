@@ -1,6 +1,12 @@
-## Jobs with Stages
+## Jobs with Stages of pipeline
 
--  stages are defined at the top using the stages keyword. 
+GitHub/GitLab Jobs and Pipelines are concepts within GitHub/GitLab Actions, the continuous integration and continuous deployment (CI/CD) workflow system of GitHub.
+
+A "Job" represents a defined set of steps that run as part of a workflow. Each job can perform specific tasks like building, testing, or deploying code. Jobs can run in parallel or sequentially, and their success or failure determines the overall status of the job.
+
+A "Pipeline" is a series of jobs organized in a sequential or parallel manner.
+
+- Stages are defined at the top using the stages keyword. 
 - Each job is given a name (clean, build, test, and deploy) followed by a colon (:).
 - The stage keyword is used to assign the job to a specific stage.
 
@@ -43,5 +49,8 @@ deploy:
       - echo "Deploying the code"
       # Add other deployment commands if needed
 ```
+
+TEST Output
+
 ![Snag_bdecd9](https://github.com/asiandevs/gitlab_cicd/assets/37457408/bdce157f-d180-43ab-9fd3-ca18905b8519)
 
