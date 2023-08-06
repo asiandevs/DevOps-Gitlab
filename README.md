@@ -19,7 +19,10 @@ Step 1: Setting up the Variable
 	4.	Set the variable key as TEST_VARIABLE and the value as test_value.
 
 
-[<img src="[https://github.com/asiandevs/gitlab_cicd/blob/main/variable01.jpg" width="90%" />]
+![variable01](https://github.com/asiandevs/gitlab_cicd/assets/37457408/67bdc0af-6de5-4e8e-9ae3-d74944a346e5)
+
+
+## Use Variable
   ```
 stages:
   - test
