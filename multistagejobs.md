@@ -89,6 +89,7 @@ parallel_test:
 ```
 
 Test Output
+
 ![Snag_176d93e](https://github.com/asiandevs/gitlab_cicd/assets/37457408/8af58977-1b04-4b23-bb26-108388b57d2f)
 
 
