@@ -32,10 +32,6 @@ sudo chmod +x /usr/local/bin/gitlab-runner
 # Create a GitLab Runner user
 sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
 
-# Install and run as a service
-sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
-sudo gitlab-runner start
-
 gitlab-runner --version
 gitlab-runner list
 ``` 
@@ -44,10 +40,17 @@ gitlab-runner list
 ```
 sudo gitlab-runner register
 ```    
+![Snag_196d0c6](https://github.com/asiandevs/gitlab_cicd/assets/37457408/931d6854-81f7-40c3-8c9f-74e6af11085d)
 
 ### Check Runner Status and verify
 ```
 sudo gitlab-runner status
 sudo gitlab-runner verify
-```    
-  - GitLab => Project => Setting => Runners => Specific runners   
+```
+![Snag_19a383c](https://github.com/asiandevs/gitlab_cicd/assets/37457408/83c5d844-aec1-4c15-99fd-5ea589f1df88)
+
+
+- GitLab => Project => Setting => CI/CD => Runners => Expand 
+![Snag_19c2789](https://github.com/asiandevs/gitlab_cicd/assets/37457408/7a172113-c2b6-419b-bcdf-29a01e7ba95e)
+
+    
