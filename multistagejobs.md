@@ -54,3 +54,42 @@ TEST Output
 
 ![Snag_bdecd9](https://github.com/asiandevs/gitlab_cicd/assets/37457408/bdce157f-d180-43ab-9fd3-ca18905b8519)
 
+#Test Stage - Parallel
+```
+# .gitlab-ci.yml
+stages:
+  - clean
+  - build
+  - test
+  - deploy
+
+clean:
+  stage: clean
+  script:
+    - echo "Cleaning the code"
+    # Add other cleaning commands if needed
+
+build:
+  stage: build
+  script:
+    - echo "Building the code"
+    # Add other build commands if needed
+
+test:
+  stage: test
+  script:
+    - echo "Testing the code"
+    # Add other testing commands if needed
+
+parallel_test:
+  stage: test
+  script:
+    - echo "Running parallel tests"
+    # Add other testing commands for parallel testing
+```
+
+Test Output
+![Snag_176d93e](https://github.com/asiandevs/gitlab_cicd/assets/37457408/8af58977-1b04-4b23-bb26-108388b57d2f)
+
+
+
