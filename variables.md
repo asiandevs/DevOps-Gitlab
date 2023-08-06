@@ -1,4 +1,4 @@
-# create a variable in the project settings and use it in the pipeline.
+# Create a variable in the project settings and use it in the pipeline.
 
 ## Topics  
 - Prerequisite
@@ -21,7 +21,6 @@ Step 1: Setting up the Variable
 
 ![variable01](https://github.com/asiandevs/gitlab_cicd/assets/37457408/67bdc0af-6de5-4e8e-9ae3-d74944a346e5)
 
-
 ## Use Variable
   ```
 stages:
@@ -32,9 +31,8 @@ my_job:
   script:
     - echo "The value of TEST_VARIABLE is ${TEST_VARIABLE}"
   ```
-
 ## Use Variable in Pipeline?
-   
+ 
   ```
 run_unit_test:
   stage: test
@@ -47,7 +45,6 @@ run_unit_test:
     - rm -r test-data
     - ls
   ```
-   
 ## How to Print All Variables in Pipeline?
 Add below two lines to get the variables
   ```
