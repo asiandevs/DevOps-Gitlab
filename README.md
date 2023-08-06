@@ -46,11 +46,10 @@ run_unit_test:
     - echo "Cleaning up temporary files.."
     - rm -r test-data
     - ls
-
-
   ```
    
 ## How to Print All Variables in Pipeline?
+Add below two lines to get the variables
   ```
     - echo "GitLab CI/CD | Print all environment variables"
     - env
