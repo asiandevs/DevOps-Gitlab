@@ -49,8 +49,8 @@ sudo gitlab-runner verify
 ```
 ![Snag_19a383c](https://github.com/asiandevs/gitlab_cicd/assets/37457408/83c5d844-aec1-4c15-99fd-5ea589f1df88)
 
-
-- GitLab => Project => Setting => CI/CD => Runners => Expand 
+### From Console - Check Runner Status and verify
+GitLab => Project => Setting => CI/CD => Runners => Expand 
 ![Snag_19c2789](https://github.com/asiandevs/gitlab_cicd/assets/37457408/7a172113-c2b6-419b-bcdf-29a01e7ba95e)
 
     
