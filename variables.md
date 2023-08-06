@@ -21,7 +21,7 @@ Step 1: Setting up the Variable
 
 ![variable01](https://github.com/asiandevs/gitlab_cicd/assets/37457408/67bdc0af-6de5-4e8e-9ae3-d74944a346e5)
 
-## Use Variable
+## Use Variable in a .gitlab-ci.yml file:
   ```
 stages:
   - test
@@ -31,7 +31,7 @@ my_job:
   script:
     - echo "The value of TEST_VARIABLE is ${TEST_VARIABLE}"
   ```
-## Use Variable in Pipeline?
+## Use Variable in Pipeline ~ .gitlab-ci.yml file?
  
   ```
 run_unit_test:
