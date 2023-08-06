@@ -18,9 +18,9 @@ Step 1: Setting up the Variable
 	3.	Click on "Add Variable."
 	4.	Set the variable key as TEST_VARIABLE and the value as test_value.
 
-  ```
-[<img src="./images/variable01.jpg" width="90%" />]
 
+[<img src="[https://github.com/asiandevs/gitlab_cicd/blob/main/variable01.jpg" width="90%" />]
+  ```
 stages:
   - test
 
@@ -30,8 +30,7 @@ my_job:
     - echo "The value of TEST_VARIABLE is ${TEST_VARIABLE}"
   ```
 
-## How to Use Variable in Pipeline?
-   - "$Variable Name" 
+## Use Variable in Pipeline?
    
   ```
 run_unit_test:
