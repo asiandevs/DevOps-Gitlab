@@ -19,6 +19,7 @@ COPY index.html /usr/share/nginx/html
 you can add below entry .gitlab-ci.yml, where your Dockerfile is:
 
 ##.gitlab-ci.yml
+
 ```
 stages:
   - package
@@ -48,7 +49,7 @@ image_validate:
     paths:
       - imagestatus.txt
 ```
-!Note: Pass the variable value to DOCKER_SECRET
+
 ## Validate
 ![Snag_7a367ec](https://github.com/asiandevs/gitlab_cicd/assets/37457408/4dd57568-cbae-4855-b77b-462bc7d14d3e)
 
@@ -61,8 +62,8 @@ image_validate:
 
 ![Snag_87d41f1](https://github.com/asiandevs/gitlab_cicd/assets/37457408/6eebe4d5-9550-4b6a-b358-1707e0569459)
 
-
 ## Issues:
+
 GitLab CI fails with "dial tcp: lookup docker on x.x.x.x:53: no such host" when pulling docker:dind ....
 To resolve this problem just add on /etc/gitlab-runner/config.toml a volume map to docker sock.
 Solution :
