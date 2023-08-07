@@ -1,5 +1,7 @@
-#Step 1:Validate Gitlab-Runner on EC2 Linux Instance
-GitLab CI Deploy to EC2 using SSH | GitLab CI Deploy to Remote Server | Deploy Code to AWS EC2 Instance using SSH with GitLab CI/CD Pipeline
+# GitLab CI Deploy to EC2 using SSH 
+## Step 1:Validate Gitlab-Runner on EC2 Linux Instance
+
+
 ```
 [root@ip-10-0-6-75 .ssh]# sudo gitlab-runner --version
 Version:      16.2.0
