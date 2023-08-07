@@ -1,4 +1,4 @@
-# Create new GitLab project
+# Run Script via SSH to remote server
 
 Login into GitLab and navigate to New project -> Create from template -> Pages/Plain HTML -> Use template. Give it a project name and hit Create project. This will create a simple plain html project.
 ![Snag_26f6ca](https://github.com/asiandevs/gitlab_cicd/assets/37457408/fbb8de35-4294-4187-9e90-fe62bd208a38)
