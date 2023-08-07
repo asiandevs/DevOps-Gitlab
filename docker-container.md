@@ -1,4 +1,4 @@
-# Docker Container Inside your GitLab CI pipeline
+ # Docker Container Inside your GitLab CI pipeline
 ## Create a project access token:
 
 On the left sidebar, at the top, select Search GitLab () to find your project.
@@ -7,7 +7,7 @@ Select Settings > Access Tokens
 ## Add access token as a Variable
 ![Snag_87f5dbc](https://github.com/asiandevs/gitlab_cicd/assets/37457408/b9fe0b4c-0b16-4029-a24f-8514be0f4856)
 
-## create a Dockerfile
+## create a Dockerfile [Dockerfile]
 ```
 FROM nginx
 LABEL maintainer="NGINX Docker File"
@@ -18,7 +18,7 @@ COPY index.html /usr/share/nginx/html
 ## Build and Push the image @GitLab Container Registry
 you can add below entry .gitlab-ci.yml, where your Dockerfile is:
 
-##.gitlab-ci.yml
+## .gitlab-ci.yml
 
 ```
 stages:
