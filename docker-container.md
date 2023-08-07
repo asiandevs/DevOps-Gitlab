@@ -1,16 +1,19 @@
 # Docker Container Inside your GitLab CI pipeline
+## Create a project access token:
+
+On the left sidebar, at the top, select Search GitLab () to find your project.
+Select Settings > Access Tokens
+
+## Add access token as a Variable
+![Snag_87f5dbc](https://github.com/asiandevs/gitlab_cicd/assets/37457408/b9fe0b4c-0b16-4029-a24f-8514be0f4856)
 
 ## create a Dockerfile
 ```
 FROM nginx
-
+LABEL maintainer="NGINX Docker File"
 RUN apt-get update && apt-get upgrade -y
 COPY index.html /usr/share/nginx/html
-
-EXPOSE 8080
-
-CMD ["nginx", "-g", "daemon off;"]
-```
+``
 
 ## Build and Push the image @GitLab Container Registry
 you can add below entry .gitlab-ci.yml, where your Dockerfile is:
@@ -19,6 +22,7 @@ you can add below entry .gitlab-ci.yml, where your Dockerfile is:
 ```
 stages:
   - package
+  - validate
 
 build_job:
   stage: package
@@ -29,7 +33,22 @@ build_job:
     - docker login -u $CI_REGISTRY_USER $CI_REGISTRY -p $DOCKER_SECRET
     - docker build -t $CI_REGISTRY_IMAGE .  
     - docker push $CI_REGISTRY_IMAGE
+
+image_validate:
+  stage: validate
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker login -u $CI_REGISTRY_USER $CI_REGISTRY -p $DOCKER_SECRET
+    - docker run --name mynginx -p 80:80 -d $CI_REGISTRY_IMAGE
+    - apk add curl 
+    - echo docker ps --filter "name=mynginx" --filter "status=running" > imagestatus.txt
+  artifacts:
+    paths:
+      - imagestatus.txt
 ```
+!Note: Pass the variable value to DOCKER_SECRET
 ## Validate
 ![Snag_7a367ec](https://github.com/asiandevs/gitlab_cicd/assets/37457408/4dd57568-cbae-4855-b77b-462bc7d14d3e)
 
@@ -39,6 +58,9 @@ build_job:
 ![Snag_7a5059e](https://github.com/asiandevs/gitlab_cicd/assets/37457408/54e8bd7d-2c61-4383-90e4-f7b687c5cac6)
 
 ![Snag_7a6efda](https://github.com/asiandevs/gitlab_cicd/assets/37457408/e71738a5-b41f-4420-9fb7-380981907607)
+
+![Snag_87d41f1](https://github.com/asiandevs/gitlab_cicd/assets/37457408/6eebe4d5-9550-4b6a-b358-1707e0569459)
+
 
 ## Issues:
 GitLab CI fails with "dial tcp: lookup docker on x.x.x.x:53: no such host" when pulling docker:dind ....
@@ -50,3 +72,5 @@ ii. When building docker image in gitlab-ci, you must add this (dind is for "doc
 services:
   - docker:dind
 ```
+
+
