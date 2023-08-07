@@ -13,7 +13,7 @@ FROM nginx
 LABEL maintainer="NGINX Docker File"
 RUN apt-get update && apt-get upgrade -y
 COPY index.html /usr/share/nginx/html
-``
+```
 
 ## Build and Push the image @GitLab Container Registry
 you can add below entry .gitlab-ci.yml, where your Dockerfile is:
