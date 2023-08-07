@@ -27,6 +27,8 @@ build_job:
 ## Validate
 ![Snag_7a367ec](https://github.com/asiandevs/gitlab_cicd/assets/37457408/4dd57568-cbae-4855-b77b-462bc7d14d3e)
 
+![Snag_7c8621c](https://github.com/asiandevs/gitlab_cicd/assets/37457408/d702d1f5-f062-45ce-97ea-9f2280f4d2d3)
+
 ## Delete Image
 ![Snag_7a5059e](https://github.com/asiandevs/gitlab_cicd/assets/37457408/54e8bd7d-2c61-4383-90e4-f7b687c5cac6)
 
