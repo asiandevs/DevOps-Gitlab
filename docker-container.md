@@ -2,8 +2,14 @@
 
 ## create a Dockerfile
 ```
-FROM python:3.10
-RUN pip3 install pytest
+FROM nginx
+
+RUN apt-get update && apt-get upgrade -y
+COPY index.html /usr/share/nginx/html
+
+EXPOSE 8080
+
+CMD ["nginx", "-g", "daemon off;"]
 ```
 
 ## Build and Push the image @GitLab Container Registry
