@@ -17,3 +17,54 @@ Navigate to Settings -> CI/CD -> Variables -> Expand -> Add Variable
 SSH_PRIVATE_KEY - paste private key
 SSH_USER — name of the user on the remote server
 VM_IPADDRESS — IP address of remote server
+
+
+
+Below is gitlab-ci.yml with explanation to deploy code to EC2 instance using ssh.
+
+stages:
+  - deploy
+#In this we have only one stage deploy
+Deploy: 
+  stage: deploy
+  before_script:
+  - command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
+  #The ssh-agent command outputs commands to set ce - cp -r * .public
+rtain environment variables in the shell
+  - eval $(ssh-agent -s)
+ #The eval command tells the shell to run the output of ssh-agent as shell commands
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+#"$SSH_PRIVATE_KEY" in this we added private key in variable
+  - mkdir -p ~/.ssh
+#create a directory
+  - chmod 700 ~/.ssh
+# usually the tools which use that directory will ask you to assign permissions to it:
+  - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
+ #"$EC2_IPADDRESS" in this we added our instance ip_address in variable
+  - chmod 644 ~/.ssh/known_hosts
+#this is key file permission
+
+  script:
+- ssh -o StrictHostKeyChecking=no $SSH_USER@$EC2_IPADDRESS "cd /var/www/html; touch ami.txt; echo 'LOVE LOVE' > ami.txt" 
+
+# Go to the directory /var/www/html/ this file and create a file foo.txt including some entry
+
+
+```
+stages:
+  - deploy
+
+Deploy: 
+  stage: deploy
+  before_script:
+  - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  script:
+  - ssh -o StrictHostKeyChecking=no $SSH_USER@$EC2_IPADDRESS "cd /var/www/html; touch ami.txt; echo 'LOVE LOVE' > ami.txt" 
+```
+
