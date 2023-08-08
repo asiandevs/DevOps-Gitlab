@@ -18,10 +18,8 @@ SSH_PRIVATE_KEY - paste private key
 SSH_USER — name of the user on the remote server
 VM_IPADDRESS — IP address of remote server
 
-
-
 Below is gitlab-ci.yml with explanation to deploy code to EC2 instance using ssh.
-
+```
 stages:
   - deploy
 #In this we have only one stage deploy
@@ -45,9 +43,7 @@ rtain environment variables in the shell
 #this is key file permission
 
   script:
-- ssh -o StrictHostKeyChecking=no $SSH_USER@$EC2_IPADDRESS "cd /var/www/html; touch ami.txt; echo 'LOVE LOVE' > ami.txt" 
-
-# Go to the directory /var/www/html/ this file and create a file foo.txt including some entry
+```
 
 
 ```
@@ -65,6 +61,17 @@ Deploy:
   - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
   script:
-  - ssh -o StrictHostKeyChecking=no $SSH_USER@$EC2_IPADDRESS "cd /var/www/html; touch ami.txt; echo 'LOVE LOVE' > ami.txt" 
+  - |
+    ssh $SSH_USER@$EC2_IPADDRESS /bin/bash -s << EOT                                                                 
+    set -x -o verbose;
+    cd /var/www/html
+    mkdir mkdir .public
+    cp -r * .public
+    mv .public public
+    set +x
+    EOT
+
 ```
+
+![Snag_99a1a6](https://github.com/asiandevs/gitlab_cicd/assets/37457408/0bb5c85a-82ed-4afd-912a-d7bc1d89d1b8)
 
