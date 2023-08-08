@@ -1,7 +1,8 @@
+# CI Deploy to EC2 using SSH to Remote Server with GitLab CI/CD Pipeline.
 # Run Script via SSH to remote server
 
 Login into GitLab and navigate to New project -> Create from template -> Pages/Plain HTML -> Use template. Give it a project name and hit Create project. This will create a simple plain html project.
-![Snag_26f6ca](https://github.com/asiandevs/gitlab_cicd/assets/37457408/fbb8de35-4294-4187-9e90-fe62bd208a38)
+
 The template cretaed README.md file, initial .gitlab-ci.yml and public directory with index.html and style.css files.
 
  # GitLab Runner
@@ -17,8 +18,9 @@ Navigate to Settings -> CI/CD -> Variables -> Expand -> Add Variable
 SSH_PRIVATE_KEY - paste private key
 SSH_USER — name of the user on the remote server
 VM_IPADDRESS — IP address of remote server
-
+```
 Below is gitlab-ci.yml with explanation to deploy code to EC2 instance using ssh.
+
 ```
 stages:
   - deploy
@@ -72,6 +74,10 @@ Deploy:
     EOT
 
 ```
+
+# Access Sample Website
+
+! ip_address/public
 
 ![Snag_99a1a6](https://github.com/asiandevs/gitlab_cicd/assets/37457408/0bb5c85a-82ed-4afd-912a-d7bc1d89d1b8)
 
