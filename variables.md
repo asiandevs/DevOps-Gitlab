@@ -13,12 +13,11 @@ GitLab variables provide developers with the ability to configure values in thei
 
 ## GitLab CI/CD Basic Variable Types 
 Step 1: Setting up the Variable
-	1.	Go to your GitLab project.
-	2.	Navigate to Settings > CI/CD > Variables.
-	3.	Click on "Add Variable."
-	4.	Set the variable key as TEST_VARIABLE and the value as test_value.
-
-
+* Setting up the Variable
+    1. Go to your GitLab project.
+    2. Navigate to Settings > CI/CD > Variables.
+    3. Click on "Add Variable."
+    4. Set the variable key as TEST_VARIABLE and the value as test_value.
 ![variable01](https://github.com/asiandevs/gitlab_cicd/assets/37457408/67bdc0af-6de5-4e8e-9ae3-d74944a346e5)
 
 ## Use Variable in a .gitlab-ci.yml file:
