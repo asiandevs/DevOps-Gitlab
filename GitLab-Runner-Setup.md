@@ -29,6 +29,11 @@ sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloa
 # Give it permission to execute
 sudo chmod +x /usr/local/bin/gitlab-runner
 
+NOTE:
+To register a project-specific runner, open your project in your GitLab instance or GitLab SaaS account.
+From the navigation menu on the left, click the Settings item and select CI/CD option:
+After that, scroll down to the Runners section and click the button to expand the section:
+
 # Create a GitLab Runner user
 sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
 
